@@ -27,10 +27,12 @@ jobs:
     # Run sonar-scanner
       - name: SonarQube Scan
         run: |
+          echo "SONAR_URL=${{ secrets.SONAR_URL }}"
+          echo "SONAR_PROJECT_KEY=${{ secrets.SONAR_PROJECT_KEY }}"
+          echo "SONAR_ORGANISATION=${{ secrets.SONAR_ORGANISATION }}"
+
           sonar-scanner -X \
-            echo "SONAR_URL=${{ secrets.SONAR_URL }}" \
-            echo "SONAR_PROJECT_KEY=${{ secrets.SONAR_PROJECT_KEY }}" \
-            echo "SONAR_ORGANISATION=${{ secrets.SONAR_ORGANISATION }}" \
+          
            -Dsonar.host.url=${{ secrets.SONAR_URL }} \
            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
            -Dsonar.organization=${{ secrets.SONAR_ORGANISATION }} \
