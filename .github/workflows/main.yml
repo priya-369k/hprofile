@@ -32,15 +32,14 @@ jobs:
           echo "SONAR_ORGANISATION=${{ secrets.SONAR_ORGANISATION }}"
 
           sonar-scanner -X \
-          
-           -Dsonar.host.url=${{ secrets.SONAR_URL }} \
-           -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-           -Dsonar.organization=${{ secrets.SONAR_ORGANISATION }} \
-           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-           -Dsonar.sources=src/ \
-           -Dsonar.junit.reportsPath=target/surefire-reports/ \
-           -Dsonar.jacoco.reportsPath=target/jacoco.exec \
-           -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml \
-           -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
+            -D"sonar.host.url=${{ secrets.SONAR_URL }}" \
+            -D"sonar.login=${{ secrets.SONAR_TOKEN }}" \
+            -D"sonar.organization=${{ secrets.SONAR_ORGANISATION }}" \
+            -D"sonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}" \
+            -D"sonar.sources=src/" \
+            -D"sonar.junit.reportsPath=target/surefire-reports/" \
+            -D"sonar.jacoco.reportsPath=target/jacoco.exec" \
+            -D"sonar.java.checkstyle.reportPaths=target/checkstyle-result.xml" \
+            -D"sonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/"
 
     
